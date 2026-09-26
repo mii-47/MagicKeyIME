@@ -9,7 +9,7 @@ Apple Magic Keyboard(JIS)をWindowsでBluetooth接続したときに反応しな
 ## 使い方(タスクトレイ)
 
 `MagicKeyIME.exe` を実行(管理者権限が必要)。  
-タスクトレイに「あ」アイコンが常駐します。  
+タスクトレイに「M」アイコンが常駐します。  
 
 | メニュー | 動作 |
 |---|---|
@@ -34,10 +34,25 @@ Bluetoothではその記述子が**SDP(Service Discovery Protocol)**のレコー
 
 | 場所 | 内容 |
 |---|---|
-| `MagicKeyIME.exe`(任意の場所) | タスクトレイ常駐アプリ(本体)。どこに置いても動く |
-| `MagicKeyIME.cs` / `MagicKeyIME.manifest` | ソースとマニフェスト(再ビルド用) |
-| `C:\ProgramData\MagicKeyIME\sdp-backup.txt` | 原本のバックアップ |
+| `src/`(`MagicKeyIME.cs` / `MagicKeyIME.csproj` / `MagicKeyIME.manifest`) | ソース(.NET 10 プロジェクト) |
+| `src/bin/Release/net10.0-windows/MagicKeyIME.exe` | ビルド成果物(本体)。任意の場所へ置いて実行可 |
+| `C:\ProgramData\MagicKeyIME\sdp-backup.txt` | 原本のバックアップ(全PC共通の固定場所) |
 
+## ビルド
+
+[.NET 10 SDK](https://dotnet.microsoft.com/download) が必要です。
+
+```
+dotnet build src/MagicKeyIME.csproj -c Release
+```
+
+出力: `src/bin/Release/net10.0-windows/MagicKeyIME.exe`(実行には .NET 10 ランタイムが必要)。
+
+他PCへ配布するなど、ランタイム非依存の単一 exe にする場合:
+
+```
+dotnet publish src/MagicKeyIME.csproj -c Release -r win-x64 --self-contained -p:PublishSingleFile=true
+```
 
 ## 注意
 

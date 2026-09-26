@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <LangVersion>latest</LangVersion>
+
+    <AssemblyName>MagicKeyIME</AssemblyName>
+    <RootNamespace>MagicKeyIME</RootNamespace>
+    <Version>1.0.0</Version>
+    <Company>mii-47</Company>
+    <Product>MagicKeyIME</Product>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <ApplicationManifest>MagicKeyIME.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+</Project>
